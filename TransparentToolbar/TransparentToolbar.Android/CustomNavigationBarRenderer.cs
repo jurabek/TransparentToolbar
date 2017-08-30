@@ -43,8 +43,8 @@ namespace TransparentToolbar.Droid
 	public class CustomNavigationBarRenderer : NavigationPageRenderer
 	{
 		AToolbar _toolbar;
-		private bool ToolbarVisible;
-		private int ContainerPadding;
+		//private bool ToolbarVisible;
+		//private int ContainerPadding;
 
 		protected override void OnElementChanged(ElementChangedEventArgs<NavigationPage> e)
 		{
@@ -54,11 +54,11 @@ namespace TransparentToolbar.Droid
 			if (memberInfo != null)
 			{
 
-				var propVisible = memberInfo.GetProperty(nameof(ToolbarVisible), BindingFlags.Instance | BindingFlags.NonPublic);
-				ToolbarVisible = (bool)propVisible.GetValue(this);
+				//var propVisible = memberInfo.GetProperty(nameof(ToolbarVisible), BindingFlags.Instance | BindingFlags.NonPublic);
+				//ToolbarVisible = (bool)propVisible.GetValue(this);
 
-				var propPadding = memberInfo.GetProperty(nameof(ContainerPadding), BindingFlags.Instance | BindingFlags.NonPublic);
-				ContainerPadding = (int)propPadding.GetValue(this);
+				//var propPadding = memberInfo.GetProperty(nameof(ContainerPadding), BindingFlags.Instance | BindingFlags.NonPublic);
+				//ContainerPadding = (int)propPadding.GetValue(this);
 
 				var field = memberInfo.GetField(nameof(_toolbar), BindingFlags.Instance | BindingFlags.NonPublic);
 				_toolbar = field.GetValue(this) as AToolbar;
@@ -113,14 +113,14 @@ namespace TransparentToolbar.Droid
 			bar.BringToFront();
 
 
-			int barHeight = ActionBarHeight();
+			//int barHeight = ActionBarHeight();
 
-			bar.Measure(MeasureSpecFactory.MakeMeasureSpec(r - l, MeasureSpecMode.Exactly), MeasureSpecFactory.MakeMeasureSpec(barHeight, MeasureSpecMode.Exactly));
+			//bar.Measure(MeasureSpecFactory.MakeMeasureSpec(r - l, MeasureSpecMode.Exactly), MeasureSpecFactory.MakeMeasureSpec(barHeight, MeasureSpecMode.Exactly));
 
-			var barOffset = ToolbarVisible ? barHeight : 0;
-			int containerHeight = b - t - ContainerPadding;
+			//var barOffset = ToolbarVisible ? barHeight : 0;
+			//int containerHeight = b - t - ContainerPadding;
 
-			PageController.ContainerArea = new Rectangle(0, 0, Context.FromPixels(r - l), Context.FromPixels(containerHeight));
+			//PageController.ContainerArea = new Rectangle(0, 0, Context.FromPixels(r - l), Context.FromPixels(containerHeight));
 
 			for (var i = 0; i < ChildCount; i++)
 			{
